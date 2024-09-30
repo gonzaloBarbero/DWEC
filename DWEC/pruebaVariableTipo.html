@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //"false"= false
+    //"0"= true
+
+    //x=10
+    //y=10; x=11;
+
+    //x=10
+    //y=11
+    
+    
+    /* "ES"; true
+    x=='1';
+    y==1;
+    true==1
+    false=="zero"
+    "test" == {x:"test"} */
+    //console.log("Its"+ true)
+
+
+    /* let edad=25;
+    console.log("El visitante:" +
+    edad + "años");
+
+    var altura;
+    console.log(altura); //undefined
+    console.log(peso);  //Uncaught ReferenceError: peso is not defined
+
+    
+    let algunRecurso;
+    console.log(algunRecurso);
+    console.log(typeof algunRecurso);
+    algunRecurso= null; */
+
+    //METODO toFixed() --> ajuste de decimales
+    var numero=9.99;
+    numero.toFixed(0); //devuelve 10-redondea
+    numero.toFixed(1); //devuelve 10.0-redondea
+    numero.toFixed(2); //devuelve 9.99
+    numero.toFixed(3); //devuelve 9.990
+
+    //METODO toPrecision() --> Ajusta la precision de un numero
+    var numero=9.99;
+    numero.toPrecision(0); //devuelve 9.99
+    numero.toPrecision(1); //devuelve 
+    numero.toPrecision(2); //devuelve 10
+    numero.toPrecision(3); //devuelve 9.990
+
+//diferencia entre estas dos funciones con ejemplo que me de resultados distintos --> Coerción. Diferencias .toFixed, .toPrecision
+var numero = 9.99;
+
+numero.toFixed(2);     // "9.99" (dos decimales exactos)
+numero.toPrecision(2); // "10" (dos dígitos significativos)
+
+
+
+    </script>
+</body>
+</html>

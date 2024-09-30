@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables en Javascript</title>
+</head>
+<body>
+    <p id="parrafo1"></p>
+    <p id="parrafo2"></p>
+    <p id="parrafo3"></p>
+    <script>
+        var nombre;
+        document.getElementById("parrafo1").innerHTML=nombre;
+        nombre= "Belén"
+        document.getElementById("parrafo1").innerHTML=nombre;
+        var pais="España",
+            nacimiento=1990 
+            mayoria= nacimiento+18;
+            boda= "2023";
+        document.write("El nombre es: "+nombre+" Nacido en: "+ pais+ " y cumplio la mayoria de edad en: "+mayoria); //typeof de nacimiento y pais
+        
+        alert ("El producto es:" +pais)
+
+        alert(typeoff(pais));
+        alert(typeoff(nacimiento));
+        alert(typeoff(boda));
+        
+        //EJEMPLOS DE OPERADORES UNARIOS
+        var a=8;
+        alert ("El valor inicial de a es "+a);
+        ++a;
+        alert ("El valor de a despues del incremento es "+a);
+        --a;
+        alert ("El valor de a despues de decremento es "+a);
+
+    </script>
+</body>
+</html>
