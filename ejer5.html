@@ -30,6 +30,17 @@
             console.log("Correo:", contactos[contactos.length - 1].correo);
         }
 
+        //Mostrar todos los contactos
+        function mostrarTodosLosContactos() {
+            console.log("Lista de todos los contactos:");
+            contactos.forEach((contacto, index) => {
+                console.log(`Contacto ${index + 1}:`);
+                console.log("  Nombre:", contacto.nombre);
+                console.log("  Teléfono:", contacto.telefono);
+                console.log("  Correo:", contacto.correo);
+            });
+        }
+
         //Agregar nuevo contacto
         function agregarNuevoContacto() {
             let nuevoNombre = prompt("Introduce el nombre del nuevo contacto:");
@@ -44,25 +55,35 @@
                 console.log("Teléfono:", nuevoTelefono);
                 console.log("Correo:", nuevoCorreo);
             } else {
-                console.log("No se agregó el contacto. Repitelo.");
+                console.log("No se agregó el contacto. Inténtalo de nuevo.");
             }
         }
 
         //Menú de opciones
-        let opcion = prompt(
+        while (true) {
+            let opcion = prompt(
                 "1. Mostrar el primer contacto (escribe 'primero')\n" +
                 "2. Mostrar el último contacto (escribe 'ultimo')\n" +
-                "4. Agregar un nuevo contacto (escribe 'nuevo')\n"
+                "3. Mostrar todos los contactos (escribe 'todos')\n" +
+                "4. Agregar un nuevo contacto (escribe 'nuevo')\n" +
+                "5. Salir (escribe 'salir')"
             );
+
             if (opcion === "primero") {
                 mostrarPrimerContacto();
             } else if (opcion === "ultimo") {
                 mostrarUltimoContacto();
+            } else if (opcion === "todos") {
+                mostrarTodosLosContactos();
             } else if (opcion === "nuevo") {
                 agregarNuevoContacto();
+            } else if (opcion === "salir") {
+                console.log("Saliendo del programa...");
+                break;
             } else {
                 console.log("Opción no válida. Inténtalo de nuevo.");
             }
+        }
 
     </script>
 </body>
