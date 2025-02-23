@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Contactos</title>
+</head>
+<body>
+    <script>
+        //Lista de contactos
+        let contactos = [
+            { nombre: "Maxwell Wright", telefono: "(0191) 719 6495", correo: "Curabitur.egestas.nunc@nonummyac.co.uk" },
+            { nombre: "Raja Villarreal", telefono: "0866 398 2895", correo: "posuere.vulputate@sed.com" },
+            { nombre: "Helen Richards", telefono: "0800 1111", correo: "libero@convallis.edu" }
+        ];
+
+        //Mostrar contacto
+        function showContact(contactList, index) {
+            if (!(contactList instanceof Array)) {
+                console.error("El primer argumento no es un array.");
+                return;
+            }
+            if (index < 0 || index >= contactList.length) {
+                console.error("Índice fuera de rango.");
+                return;
+            }
+            const contacto = contactList[index];
+            console.log(`Contacto ${index + 1}:`);
+            console.log("  Nombre:", contacto.nombre);
+            console.log("  Teléfono:", contacto.telefono);
+            console.log("  Correo:", contacto.correo);
+        }
+
+        //Mostrar todos los contactos
+        function showAllContacts(contactList) {
+            if (!(contactList instanceof Array)) {
+                console.error("El argumento no es un array.");
+                return;
+            }
+            console.log("Lista de todos los contactos:");
+            contactList.forEach((contacto, index) => {
+                console.log(`Contacto ${index + 1}:`);
+                console.log("  Nombre:", contacto.nombre);
+                console.log("  Teléfono:", contacto.telefono);
+                console.log("  Correo:", contacto.correo);
+            });
+        }
+
+        //Agregar nuevo contacto
+        function addNewContact(contactList, nombre, telefono, correo) {
+            if (!(contactList instanceof Array)) {
+                console.error("El primer argumento no es un array.");
+                return;
+            }
+            if (!nombre || !telefono || !correo) {
+                console.error("Faltan datos del nuevo contacto.");
+                return;
+            }
+            contactList.push({ nombre, telefono, correo });
+            console.log("Nuevo contacto agregado correctamente:");
+            console.log("  Nombre:", nombre);
+            console.log("  Teléfono:", telefono);
+            console.log("  Correo:", correo);
+        }
+
+        //Menú de opciones
+        while (true) {
+            let opcion = prompt(
+                "1. Mostrar el primer contacto (escribe 'primero')\n" +
+                "2. Mostrar el último contacto (escribe 'ultimo')\n" +
+                "3. Mostrar todos los contactos (escribe 'todos')\n" +
+                "4. Agregar un nuevo contacto (escribe 'nuevo')\n" +
+                "5. Salir (escribe 'salir')"
+            );
+
+            if (opcion === "primero") {
+                showContact(contactos, 0); //Primer contacto
+            } else if (opcion === "ultimo") {
+                showContact(contactos, contactos.length - 1); //Ultimo contacto
+            } else if (opcion === "todos") {
+                showAllContacts(contactos); //Todos los contactos
+            } else if (opcion === "nuevo") {
+                //Nuevo contacto
+                let nombre = prompt("Introduce el nombre del nuevo contacto:");
+                let telefono = prompt("Introduce el teléfono del nuevo contacto:");
+                let correo = prompt("Introduce el correo electrónico del nuevo contacto:");
+                addNewContact(contactos, nombre, telefono, correo); //Agrega nuevo contacto
+            } else if (opcion === "salir") {
+                console.log("Saliendo del programa...");
+                break;
+            } else {
+                console.log("Opción no válida. Inténtalo de nuevo.");
+            }
+        }
+    </script>
+</body>
+</html>
