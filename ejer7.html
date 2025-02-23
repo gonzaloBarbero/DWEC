@@ -63,6 +63,29 @@
             console.log("  Correo:", correo);
         }
 
+        //Ordenar contactos
+        function sortContacts(contactList, criterion) {
+            if (!(contactList instanceof Array)) {
+                console.error("El argumento no es un array.");
+                return;
+            }
+            if (!["nombre", "telefono", "correo"].includes(criterion)) {
+                console.error("Criterio de ordenación no válido.");
+                return;
+            }
+            contactList.sort((a, b) => {
+                if (a[criterion].toLowerCase() < b[criterion].toLowerCase()) {
+                    return -1;
+                }
+                if (a[criterion].toLowerCase() > b[criterion].toLowerCase()) {
+                    return 1;
+                }
+                return 0;
+            });
+            console.log(`Contactos ordenados por ${criterion}:`);
+            showAllContacts(contactList);
+        }
+
         //Menú de opciones
         while (true) {
             let opcion = prompt(
@@ -70,11 +93,12 @@
                 "2. Mostrar el último contacto (escribe 'ultimo')\n" +
                 "3. Mostrar todos los contactos (escribe 'todos')\n" +
                 "4. Agregar un nuevo contacto (escribe 'nuevo')\n" +
-                "5. Salir (escribe 'salir')"
+                "5. Ordenar contactos (escribe 'sort')\n" +
+                "6. Salir (escribe 'salir')"
             );
 
             if (opcion === "primero") {
-                showContact(contactos, 0); //Primer contacto
+                showContact(contactos, 0); //rimer contacto
             } else if (opcion === "ultimo") {
                 showContact(contactos, contactos.length - 1); //Ultimo contacto
             } else if (opcion === "todos") {
@@ -85,6 +109,10 @@
                 let telefono = prompt("Introduce el teléfono del nuevo contacto:");
                 let correo = prompt("Introduce el correo electrónico del nuevo contacto:");
                 addNewContact(contactos, nombre, telefono, correo); //Agrega nuevo contacto
+            } else if (opcion === "sort") {
+                //Ordenar
+                let criterion = prompt("¿Por qué criterio deseas ordenar? (nombre, telefono, correo)");
+                sortContacts(contactos, criterion);
             } else if (opcion === "salir") {
                 console.log("Saliendo del programa...");
                 break;
